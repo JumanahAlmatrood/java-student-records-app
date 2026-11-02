@@ -1,13 +1,25 @@
-project is a Java application for implementing a login system. The application presents a graphical user interface (GUI) in the form of a login window.
+# Java Login and Student Records App
 
-When the application starts, the user is presented with a login window containing two input fields: one for the username and one for the password. The user can enter their credentials and click the "Enter" button to log in or click the "Cancel" button to exit the application.
+A Java desktop application with a login window and separate pages for admins and users. It was built with Swing and connects to a Microsoft Access database through UCanAccess.
 
-Upon clicking the "Enter" button, the application establishes a connection to a Microsoft Access database (specified as "DBlogin.accdb") using the JDBC-UCanAccess driver. It then executes a SQL query to check if the entered username and password match a record in the "DBlogin" table.
+## Features
 
-If the entered credentials match a record in the database, the application determines the user type associated with the matched record. If the user type is "Admin", it opens an "AdminPage" window with the title "admin". If the user type is not "Admin", it opens a "UserPage" window with the title "user". These window classes are not included in the provided code.
+| Feature | Admin | User |
+|---|---|---|
+| Log in with a username and password | Yes | Yes |
+| Save text to a `.txt` file | Yes | Yes |
+| Search a file by student name or grade | Yes | Yes |
+| Count how many students passed or failed | Yes | No |
 
-If the entered credentials do not match any record in the database, the application displays a message dialog stating that the username or password is incorrect.
+A student passes with a grade of 10 or more.
 
-It's worth noting that this code is just a login interface and does not include the implementation of the "AdminPage" and "UserPage" classes. The functionality of these classes is not provided, so we cannot determine their specific purpose or features based on the given code snippet.
+## How it works
 
-Overall, this project aims to provide a user-friendly login interface and validate user credentials against a Microsoft Access database. It can serve as a starting point for a more extensive application that requires user authentication and role-based access control.
+1. `Login.java` checks the username and password against the `DBlogin` table in `DBlogin.accdb`.
+2. The user type in that record decides which page opens: `AdminPage` or `UserPage`.
+3. `SearchPage` reads a file with one `name grade` pair on each line and shows the matching lines.
+4. `StaticPage` reads the same format and shows the pass and fail counts.
+
+## Tools
+
+Java, Swing, JDBC, UCanAccess, Microsoft Access, Maven
